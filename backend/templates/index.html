@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AskmeOffers Backend</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            color: #333;
+        }
+        h1 {
+            font-size: 3em;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #ff4a3c;
+        }
+        .deals-container {
+            margin-top: 20px;
+            width: 80%;
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .deal {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .deal:last-child {
+            border-bottom: none;
+        }
+        .store {
+            font-weight: 700;
+            color: #ff6f61;
+        }
+        .discount {
+            color: #2ecc71;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to AskmeOffers API</h1>
+    <button class="button" id="fetchDeals">Fetch Deals</button>
+    <div class="deals-container" id="dealsContainer" style="display:none;">
+        <!-- Deals will be dynamically inserted here -->
+    </div>
+
+    <script>
+        document.getElementById('fetchDeals').addEventListener('click', () => {
+            fetch('/api/deals')
+                .then(response => response.json())
+                .then(deals => {
+                    const dealsContainer = document.getElementById('dealsContainer');
+                    dealsContainer.style.display = 'block';
+                    dealsContainer.innerHTML = '';  // Clear previous deals
+                    deals.forEach(deal => {
+                        const dealElement = document.createElement('div');
+                        dealElement.className = 'deal';
+                        dealElement.innerHTML = `
+                            <span class="store">${deal.store}</span>
+                            <span class="discount">${deal.discount}</span>
+                        `;
+                        dealsContainer.appendChild(dealElement);
+                    });
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+#deals-container {
+  width: 90%;
+  max-width: 600px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#deals-container h1 {
+  margin: 0 0 20px 0;
+  font-size: 1.5em;
+  color: #ff6f61;
+}
+
+#deals-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%; /* Ensure the list takes the full width of the container */
+}
+
+#deals-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Space out the elements within the list item */
+  margin-bottom: 15px;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+#deals-list li img {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+
+#deals-list li a {
+  color: #0073e6;
+  text-decoration: none;
+  font-weight: bold;
+  flex-grow: 1; /* Allow the link to grow and take available space */
+}
+
+#deals-list li a:hover {
+  text-decoration: underline;
+}
+
+#deals-list li .discount {
+  background-color: #2ecc71;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  white-space: nowrap; /* Prevent discount text from wrapping */
+}
