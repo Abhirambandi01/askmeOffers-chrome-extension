@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # AskmeOffers Chrome Extension
 
 ## Overview
@@ -66,4 +66,4 @@ The AskmeOffers Chrome Extension is a Proof of Concept (PoC) project aimed at de
 # askmeOffers-chrome-extension
 This POC is a chrome extension that displays the latest deals of different top notch ecommerce sites. 
 Welcoming everyone to make your hands dirty for further advancements.
->>>>>>> d2fdd74b347b4348510d947687e1fe3dba1af860
+
